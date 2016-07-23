@@ -1,0 +1,29 @@
+{
+  "name": "bookmark-client",
+  "description": "Bookmark web client.",
+  "main": "main.js",
+  "authors": [
+    "Tony <tonyeen@foxmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Bookmark"
+  ],
+  "homepage": "https://github.com/qianrenxi/bookmark-client",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-bootstrap": "^2.0.0",
+    "angular-animate": "^1.5.8",
+    "angular-touch": "^1.5.8",
+    "bootstrap": "^3.3.6",
+    "bootstrap-sass": "^3.3.6",
+    "font-awesome": "^4.6.3"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "bookmark-client",
+  "version": "1.0.0",
+  "description": "Bookmark web client.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qianrenxi/bookmark-client.git"
+  },
+  "keywords": [
+    "Bookmark"
+  ],
+  "author": "Tony <tonyeen@foxmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qianrenxi/bookmark-client/issues"
+  },
+  "homepage": "https://github.com/qianrenxi/bookmark-client#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-ng-html2js": "^0.2.2",
+    "gulp-sass": "^2.3.2"
+  },
+  "dependencies": {}
+}
