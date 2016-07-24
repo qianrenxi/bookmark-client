@@ -1,0 +1,12 @@
+<div class="tree-node" ng-dblclick="itemExpended(item, $event);">
+    <i ng-click="itemExpended(item, $event);" class="{{getItemIcon(item)}}"></i>
+
+    <input type="checkbox" ng-model="item.$$isChecked" class="check-box" ng-if="canChecked"
+           ng-change="warpCallback('itemCheckedChanged', item, $event)">
+
+    <span class='text-field' ng-click="warpCallback('itemClicked', item, $event);" onselectstart="return false;" style="-moz-user-select:none;">{{item.name}}</span>
+</div>
+<ul ng-if="!isLeaf(item)" ng-show="item.$$isExpend">
+    <li ng-repeat="item in item.children" ng-include="'views/treeViewItem.html'">
+    </li>
+</ul>
