@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div class="row">
+    <div class="">
+        <div ng-repeat="page in pages" class="col-md-2">
+            <div class="thumbnail">
+                <a href="{{page.url}}"
+                   target="_blank"><img style="width: 100%; " ng-src="{{page.favicon}}"/></a>
+            <a href="{{page.url}}"
+               target="_blank">{{page.name}}</a>
+            <span class="text-info">[{{page.url}}]</span>
+            </div>
+        </div>
+    </div>
+</div>

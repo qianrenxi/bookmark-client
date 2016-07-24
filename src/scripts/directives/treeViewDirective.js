@@ -4,14 +4,14 @@
 (function () {
     "use strict";
 
-    angular.module("terminal.components.treeView", [])
+    angular.module("tmr.bookmark.treeView", [])
         .directive('tmTreeView', TreeViewDirective)
         .controller('treeViewController', TreeViewController);
 
     function TreeViewDirective() {
         return {
             restrict: 'E',
-            templateUrl: "views/treeView.html",
+            templateUrl: "tmr/templates/bookmark/treeView.html",
             controller: 'treeViewController',
             scope: {
                 treeData: '=',
@@ -26,8 +26,16 @@
 
     function TreeViewController($scope) {
         $scope.itemExpended = function (item, $event) {
-            item.$$isExpend = !item.$$isExpend;
-            $event.stopPropagation();
+            item.$$isExpend = $scope.isLeaf(item)?false:!item.$$isExpend;
+            //$event.stopPropagation();
+        };
+        var itemClicked = $scope.itemClicked;
+        $scope.itemClicked = function(item, $event){
+            //itemClicked();
+            //console.log($scope.treeData);
+            resetSelect($scope.treeData);
+            item.selected = true;
+            itemClicked({item: item});
         };
 
         $scope.getItemIcon = function (item) {
@@ -50,6 +58,15 @@
                 $event: $event
             });
         };
+
+        function resetSelect(items){
+            angular.forEach(items, function(item, index){
+                item.selected=false;
+                if(item.children){
+                    resetSelect(item.children);
+                }
+            });
+        }
     }
 
     TreeViewController.$inject = ['$scope'];

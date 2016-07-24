@@ -1,10 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="tmr.bookmark">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>View Framework Demo</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/bower_components/view-framework/dist/styles/main.css"/>
+    <link rel="stylesheet" href="/assets/styles/bookmark.css"/>
 </head>
 <body>
+<qui-view-framework>
+    <div class="sidebar" qui-resize="">
+        <div class="sidebar-inner" ng-controller="folderController">
+            <div class="search">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" />
+                    <span class="input-group-btn">
+                    <button class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div class="btn-group btn-group-xs" role="group">
+                <button class="btn btn-default btn-xs" ng-click="createFolder()"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-default btn-xs" ng-click="deleteFolder()"><i class="fa fa-minus"></i></button>
+                <button class="btn btn-default btn-xs" ng-click="editFolder()"><i class="fa fa-edit"></i></button>
+            </div>
+            <div>Sort by name</div>
+            <tm-tree-view tree-data="folderTree" text-field="name" value-field='id'
+                          can-checked="false" item-clicked="selectFolder(item);"></tm-tree-view>
+        </div>
+    </div>
+    <div class="main">
+        <div class="panel"></div>
+        <ng-view></ng-view>
+    </div>
+</qui-view-framework>
 
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/layer/layer.js"></script>
+<script src="/bower_components/layer/src/extend/layer.ext.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/view-framework/dist/scripts/main.js"></script>
+
+<script src="/scripts/bookmark.js"></script>
 </body>
 </html>

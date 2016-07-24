@@ -3,17 +3,22 @@
  */
 (function () {
     'use strict';
-    angular.module('bookmark')
-        .controller('pageController', ['pageService', PageController]);
+    angular.module('tmr.bookmark')
+        .controller('pageController', ['$scope','pageService','$routeParams', PageController]);
 
-    function PageController(pageService) {
+    function PageController($scope,pageService, $routeParams) {
         var self = this;
 
         self.pages = [];
+        $scope.pages = self.pages;
+        //console.log($routeParams);
+
+        loadPages();
 
         function loadPages() {
-            pageService.list().then(function (pages) {
-                self.pages = pages;
+            pageService.list($routeParams.folderId).then(function (pages) {
+                $scope.pages = pages;
+                //console.log(pages);
             });
         }
 

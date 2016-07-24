@@ -4,7 +4,7 @@
 (function () {
     'use strict';
 
-    angular.module('bookmark')
+    angular.module('tmr.bookmark')
         .service('folderService', ['$q','$http', FolderService]);
 
     function FolderService($q, $http) {
@@ -16,9 +16,24 @@
 
         function findTree() {
             var d = $q.defer();
+            //console.log('http://qianrenxi.com/bookmark/folder/tree');
             $http({
                 method:'GET',
-                url:'http://localhost:8080/folder/tree'
+                url:'http://localhost:8080/bookmark/folder/tree'
+            }).then(function(resp){
+                //console.log(resp);
+                d.resolve(resp.data);
+            });
+
+            return d.promise;
+        }
+
+        function save(folder) {
+            var d = $q.defer();
+            $http({
+                method:'POST',
+                url:'http://localhost:8080/bookmark/folder/save',
+                data: folder
             }).then(function(resp){
                 d.resolve(resp.data);
             });
@@ -26,12 +41,16 @@
             return d.promise;
         }
 
-        function save() {
+        function remove(folderId) {
+            var d = $q.defer();
+            $http({
+                method:'GET',
+                url:'http://localhost:8080/bookmark/folder/'+folderId+'/delete'
+            }).then(function(resp){
+                d.resolve(resp.data);
+            });
 
-        }
-
-        function remove() {
-
+            return d.promise;
         }
     }
 })();

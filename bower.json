@@ -24,6 +24,9 @@
     "angular-touch": "^1.5.8",
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.6",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "view-framework": "https://github.com/qianrenxi-ui/view-framework.git",
+    "angular-route": "^1.5.8",
+    "layer": "*"
   }
 }

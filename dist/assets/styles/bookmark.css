@@ -1,52 +1,42 @@
 *:focus {
-  outline: none;
-}
+  outline: none; }
 
-.workspace{
+.workspace {
   display: flex;
-  overflow-y: scroll;
-}
-
+  overflow-y: scroll; }
 
 .sidebar {
   width: 220px;
   height: 100%;
-  background-color: #eeeeee;
-}
+  background-color: #eeeeee; }
 
 .sidebar-inner {
-  padding: 8px;
-}
+  padding: 8px; }
 
 .tree-view, .tree-view ul {
   list-style: none;
-
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .tree-view .tree-node {
   position: relative;
-  white-space: nowrap;
-}
+  white-space: nowrap; }
 
 .tree-view * {
   cursor: default;
-  user-select: none;
-}
-.tree-view li .tree-node{
+  user-select: none; }
+
+.tree-view li .tree-node {
   height: 25px;
-  line-height: 25px;
-}
-.tree-view li.selected::before{
+  line-height: 25px; }
+
+.tree-view li.selected::before {
   content: '';
   background-color: #DDDDDD;
   position: absolute;
   left: 0;
   right: 0;
-  height: 25px;
-}
+  height: 25px; }
 
-.list-tree > li{
-  padding-left: 15px;
-}
+.list-tree > li {
+  padding-left: 15px; }

@@ -1,12 +1,15 @@
-<div class="tree-node" ng-dblclick="itemExpended(item, $event);">
-    <i ng-click="itemExpended(item, $event);" class="{{getItemIcon(item)}}"></i>
+<div class="tree-node" ng-click="itemClicked(item, $event);" ng-dblclick="itemExpended(item, $event);">
+    <i class="fa" style="width: 10px;"
+       ng-class="{'fa-caret-right':!isLeaf(item)&&!item.$$isExpend, 'fa-caret-down':!isLeaf(item)&&item.$$isExpend}"></i>
+    <i style="width: 15px;" ng-click="itemExpended(item, $event);" class="{{getItemIcon(item)}}"></i>
 
     <input type="checkbox" ng-model="item.$$isChecked" class="check-box" ng-if="canChecked"
            ng-change="warpCallback('itemCheckedChanged', item, $event)">
 
-    <span class='text-field' ng-click="warpCallback('itemClicked', item, $event);" onselectstart="return false;" style="-moz-user-select:none;">{{item.name}}</span>
+    <a href="#/{{item.id}}/pages"><span class='text-field' onselectstart="return false;" style="-moz-user-select:none;">{{item.name}}</span></a>
 </div>
-<ul ng-if="!isLeaf(item)" ng-show="item.$$isExpend">
-    <li ng-repeat="item in item.children" ng-include="'views/treeViewItem.html'">
+<ul ng-if="!isLeaf(item)" ng-show="item.$$isExpend" class="list-tree">
+    <li ng-repeat="item in item.children" ng-include="'templates/treeViewItem.html'"
+        ng-class="{'selected':item.selected }">
     </li>
 </ul>
